@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.baijie.dao.OrderDao">
+    <resultMap id="oneTomany" type="Order">
+        <id column="id" property="id"></id>
+        <result column="commodityCode" property="commodityCode"></result>
+        <result column="commodityName" property="commodityName"></result>
+        <result column="commodityUnit" property="commodityUnit"></result>
+        <result column="commodityDesc" property="commodityDesc"></result>
+        <result column="commodityNum" property="commodityNum"></result>
+        <result column="totalPrice" property="totalPrice"></result>
+        <result column="isPayment" property="isPayment"></result>
+        <collection property="providers" ofType="Providers">
+            <result column="companyName" property="companyName"></result>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="oneTomany">
+        SELECT o.id,o.commodityCode,o.commodityName,o.commodityUnit,o.commodityDesc,o.commodityNum,
+        o.totalPrice,o.isPayment,p.companyName
+        FROM  store_admin_order AS o LEFT JOIN store_admin_providers AS p  ON o.providerId=p.id
+        <where>
+            <if test="Name!=null">
+                commodityName like '%' #{Name} '%'
+            </if>
+        </where>
+    </select>
+    <!--<select id="findAll" resultType="Order">-->
+        <!--select * from store_admin_order-->
+        <!--<where>-->
+            <!--<if test="Name!=null">-->
+                <!--commodityName like '%' #{Name} '%'-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+    <delete id="delByid">
+        DELETE FROM store_admin_order WHERE id=#{id}
+    </delete>
+    <select id="findBytId" resultType="Order">
+        select * from store_admin_order where id =#{id}
+    </select>
+    <update id="update" parameterType="Order">
+        UPDATE  store_admin_order SET  commodityCode=#{commodityCode},
+        commodityName=#{commodityName},commodityDesc=#{commodityDesc},
+        commodityUnit=#{commodityUnit},commodityNum=#{commodityNum},
+        totalPrice=#{totalPrice},isPayment=#{isPayment},providerId=#{providerId}
+        where id=#{id}
+    </update>
+    <insert id="adduser" useGeneratedKeys="true" parameterType="Order">
+        INSERT INTO store_admin_order VALUES (null,#{commodityCode},
+        #{commodityName},#{commodityDesc},#{commodityUnit},#{commodityNum},
+        #{totalPrice},#{isPayment},#{providerId})
+    </insert>
+</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baijie.dao.RoleDao">
+    <select id="findAll" resultType="Role">
+        select * from store_admin_role
+        <where>
+            <if test="Name!=null">
+                roleName like '%' #{Name} '%'
+            </if>
+        </where>
+    </select>
+    <delete id="delByid">
+        DELETE FROM store_admin_role WHERE id=#{id}
+    </delete>
+    <select id="findBytId" resultType="Role">
+        select * from store_admin_role where id =#{id}
+    </select>
+    <update id="update" parameterType="Role">
+        UPDATE  store_admin_role SET  roleCode=#{roleCode},roleName=#{roleName}where id=#{id}
+    </update>
+    <insert id="adduser" useGeneratedKeys="true" parameterType="Role">
+        INSERT INTO store_admin_role VALUES (null,#{roleCode},#{roleName})
+    </insert>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.baijie.dao.ProvidersDao">
+    <select id="findAll" resultType="Providers">
+        select * from store_admin_providers
+        <where>
+            <if test="Name!=null">
+                companyName like '%' #{Name} '%'
+            </if>
+        </where>
+    </select>
+    <delete id="delByid">
+        DELETE FROM store_admin_providers WHERE id=#{id}
+    </delete>
+    <select id="findBytId" resultType="Providers">
+        select * from store_admin_providers where id =#{id}
+    </select>
+    <update id="update" parameterType="Providers">
+        UPDATE  store_admin_providers SET  companyCode=#{companyCode},companyName=#{companyName},companyDesc=#{companyDesc},companyUser=#{companyUser},comPhoneNum=#{comPhoneNum},companySite=#{companySite} where id=#{id}
+    </update>
+    <insert id="adduser" useGeneratedKeys="true" parameterType="Providers">
+        INSERT INTO store_admin_providers VALUES (null,#{companyCode},#{companyName},#{companyDesc},#{companyUser},#{comPhoneNum},#{companySite})
+    </insert>
+</mapper>

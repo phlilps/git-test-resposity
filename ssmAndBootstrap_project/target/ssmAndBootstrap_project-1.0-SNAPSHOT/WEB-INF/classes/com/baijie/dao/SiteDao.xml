@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.baijie.dao.SiteDao">
+    <resultMap id="oneTomany" type="Site">
+        <id column="id" property="id"></id>
+        <result column="contact" property="contact"></result>
+        <result column="siteDesc" property="siteDesc"></result>
+        <result column="postCode" property="postCode"></result>
+        <result column="telPhoneNum" property="telPhoneNum"></result>
+        <collection property="user" ofType="User">
+            <result column="username" property="username"></result>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="oneTomany">
+        SELECT s.id,s.contact,s.siteDesc,s.postCode,s.telPhoneNum,u.username
+        FROM store_admin_site AS s LEFT JOIN store_admin_user AS u ON u.id=s.userId
+        <where>
+            <if test="Name!=null">
+                s.contact like '%' #{Name} '%'
+            </if>
+        </where>
+    </select>
+    <delete id="delByid">
+        DELETE FROM store_admin_site WHERE id=#{id}
+    </delete>
+    <select id="findBytId" resultType="Site">
+        select * from store_admin_site where id =#{id}
+    </select>
+    <update id="update" parameterType="Site">
+        UPDATE  store_admin_site SET  contact=#{contact},siteDesc=#{siteDesc},
+        postCode=#{postCode},telPhoneNum=#{telPhoneNum} where id=#{id}
+    </update>
+    <insert id="adduser" useGeneratedKeys="true" parameterType="Site">
+        INSERT INTO store_admin_site VALUES (null,#{contact},#{siteDesc},#{postCode},#{telPhoneNum},NULL )
+    </insert>
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.baijie.dao.UserDao">
+    <select id="login" resultType="User">
+        SELECT * FROM store_admin_user where username=#{username} and password=#{password}
+    </select>
+    <resultMap id="oneTomany" type="User">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+        <result column="gender" property="gender"></result>
+        <result column="birthday" property="birthday"></result>
+        <result column="phoneNum" property="phoneNum"></result>
+        <result column="site" property="site"></result>
+        <collection property="roles" ofType="Role">
+            <result column="roleName" property="roleName"></result>
+        </collection>
+    </resultMap>
+    <select id="findAll" resultMap="oneTomany">
+        SELECT u.id,u.username,u.gender,u.birthday,u.phoneNum,u.site,r.roleName
+        FROM store_admin_user AS u LEFT JOIN store_admin_role AS r ON r.id=u.userRole
+        <where>
+            <if test="userName!=null">
+                u.username like '%' #{userName} '%'
+            </if>
+        </where>
+    </select>
+    <delete id="delByid">
+        DELETE FROM store_admin_user WHERE id=#{id}
+    </delete>
+    <select id="findBytId" resultType="User">
+        select * from store_admin_user where id =#{id}
+    </select>
+    <update id="update" parameterType="User">
+  UPDATE  store_admin_user SET  birthday=#{birthday},username=#{username},gender=#{gender},password=#{password},phoneNum=#{phoneNum},site=#{site} where id=#{id}
+    </update>
+    <insert id="adduser" useGeneratedKeys="true" parameterType="User">
+        INSERT INTO store_admin_user VALUES (null,#{username},#{password},#{gender},#{birthday},#{phoneNum},#{site},NULL )
+    </insert>
+</mapper>
