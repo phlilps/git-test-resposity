@@ -122,6 +122,9 @@ mysql+Bootstrap+html+css+javascrip+SSM（Spring+SpringMVC+MyBatis）框架集由
 #### 数据库表设计
 数据库的表信息属于设计的一部分，下面介绍数据库中的各个表的详细信息。
 表4-1商品订单收货地址信息表
+
+![商品订单收货地址信息表](https://images.gitee.com/uploads/images/2021/1118/160456_64c6b5ea_8746031.png "商品订单收货地址信息表.png")
+
 字段名称	        字段意义	字段类型	 字段长度 键码	能否为空
 
 id	        序号	bigint	20	主键	否
@@ -144,7 +147,12 @@ providerId	供应商ID	int	20		否
 
 
 
+
+
 表4-2店员的角色信息表
+
+![店员的角色信息表](https://images.gitee.com/uploads/images/2021/1118/160522_2f443644_8746031.png "店员的角色信息表.png")
+
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
 id	序号	bigint	20	主键	否
@@ -165,6 +173,9 @@ userRole	用户角色（取自角色表-角色id	int	10		是
 
 
 表4-3 货品供应商信息表
+
+![货品供应商信息表](https://images.gitee.com/uploads/images/2021/1118/160549_ce3c8553_8746031.png "货品供应商信息表.png")
+
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
 id	序号	bigint	20	主键	否
@@ -184,6 +195,8 @@ companySite	地址	varchar	50		否
 
 表4-4 商品订单收货地址信息表
 
+[图片上传失败(image-V6v2OqBULsqHHpxFZwiC)]
+
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
 id	序号	int	20	主键	否
@@ -200,6 +213,9 @@ userId	用户ID	bigint	20		否
 
 
 表4-5 私聊信息表
+
+[图片上传失败(image-uQiSye8XqCnAyWa4KdDU)]
+
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
 id	序号	bigint	11	主键	否
