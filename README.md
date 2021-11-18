@@ -280,6 +280,7 @@ roleName	角色名称	varchar	15		否
 
 ####  用户退出
 用户信息进行退出等操作。如图5-7所示：
+
  ![用户退出](https://images.gitee.com/uploads/images/2021/1118/153001_1107fa24_8746031.png "用户退出.png")
 
 图5-7退出界面
