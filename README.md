@@ -196,7 +196,7 @@ companySite	地址	varchar	50		否
 
 表4-4 商品订单收货地址信息表
 
-[图片上传失败(image-V6v2OqBULsqHHpxFZwiC)]
+![商品订单收货地址信息表](https://images.gitee.com/uploads/images/2021/1118/164201_bd27179c_8746031.png "商品订单收货地址信息表.png")
 
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
@@ -215,7 +215,7 @@ userId	用户ID	bigint	20		否
 
 表4-5 私聊信息表
 
-[图片上传失败(image-uQiSye8XqCnAyWa4KdDU)]
+![私聊信息表](https://images.gitee.com/uploads/images/2021/1118/164220_76b1f65c_8746031.png "私聊信息表.png")
 
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
 
