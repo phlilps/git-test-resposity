@@ -122,9 +122,9 @@ mysql+Bootstrap+html+css+javascrip+SSM（Spring+SpringMVC+MyBatis）框架集由
 #### 数据库表设计
 数据库的表信息属于设计的一部分，下面介绍数据库中的各个表的详细信息。
 表4-1商品订单收货地址信息表
-字段名称	字段意义	字段类型	字段长度	键码	能否为空
+字段名称	        字段意义	字段类型	 字段长度 键码	能否为空
 
-id	序号	bigint	20	主键	否
+id	        序号	bigint	20	主键	否
 
 commodityCode	商品编码	varchar	20		是
 
@@ -149,15 +149,15 @@ providerId	供应商ID	int	20		否
 
 id	序号	bigint	20	主键	否
 
-userName	用户名称	varchar	15		是
+userName	用户名称	varchar	15	是
 
-password	用户密码	varchar	15		是
+password	用户密码	varchar	15	是
 
 gender	性别	varchar	10		是
 
-birthday	出生日期	varchar	20		是
+birthday	出生日期	varchar	20	是
 
-phoneNum	手机	varchar	15		是
+phoneNum	手机	varchar	15	是
 
 site	地址	varchar	30		是
 
