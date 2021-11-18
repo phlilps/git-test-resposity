@@ -71,12 +71,14 @@ mysql+Bootstrap+html+css+javascrip+SSM（Spring+SpringMVC+MyBatis）框架集由
 #### 数据库实体
 实体（Entity）在数据模型中，对应了现实生活中可区别于其他对象的“事件”或“事物”。例如说，商店里的每个商品。
 本系统的功能实体联系图如下图所示：
-![商品订单信息实体图如图](https://images.gitee.com/uploads/images/2021/1118/152537_a11c0b06_8746031.png "商品订单信息实体图如图.png")
+
 
 1、商品订单信息实体图如图4-3所示：
- 
+
+![商品订单信息实体图如图](https://images.gitee.com/uploads/images/2021/1118/152537_a11c0b06_8746031.png "商品订单信息实体图如图.png")
+
 图4-3商品订单信息实体图
-![商品订单信息实体图](https://images.gitee.com/uploads/images/2021/1118/152606_ed08b3b4_8746031.png "商品订单信息实体图.png")
+
 
 2、货品供应商信息实体图如图4-4所示：
 
@@ -110,53 +112,89 @@ mysql+Bootstrap+html+css+javascrip+SSM（Spring+SpringMVC+MyBatis）框架集由
 数据库的表信息属于设计的一部分，下面介绍数据库中的各个表的详细信息。
 表4-1商品订单收货地址信息表
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
+
 id	序号	bigint	20	主键	否
+
 commodityCode	商品编码	varchar	20		是
+
 commodityName	商品名称	varchar	20		是
+
 commodityDesc	商品描述	varchar	50		是
+
 commodityUnit	商品单位	varchar	10		是
+
 commodityNum	商品数量	varchar	22		是
+
 totalPrice	商品总额	varchar	22		是
+
 providerId	是否支付（1：未支付 2：已支付）	int	10		是
+
 providerId	供应商ID	int	20		否
+
 
 
 表4-2店员的角色信息表
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
+
 id	序号	bigint	20	主键	否
+
 userName	用户名称	varchar	15		是
+
 password	用户密码	varchar	15		是
+
 gender	性别	varchar	10		是
+
 birthday	出生日期	varchar	20		是
+
 phoneNum	手机	varchar	15		是
+
 site	地址	varchar	30		是
+
 userRole	用户角色（取自角色表-角色id	int	10		是
+
 
 表4-3 货品供应商信息表
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
+
 id	序号	bigint	20	主键	否
+
 companyCode	供应商编码	varchar	20		否
+
 companyName	供应商名称	varchar	20		否
+
 companyDesc	供应商详细描述	varchar	50		否
+
 companyUser	供应商联系人	varchar	20		否
+
 comPhoneNum	联系电话	varchar	20		否
+
 companySite	地址	varchar	50		否
+
 
 表4-4 商品订单收货地址信息表
 
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
+
 id	序号	int	20	主键	否
+
 contact	联系人姓名	varchar	15		否
+
 siteDesc	收货地址明细	varchar	50	外键	否
+
 postCode	邮编	varchar	15		否
+
 telPhoneNum	联系人电话	varchar	20		否
+
 userId	用户ID	bigint	20		否
 
 
 表4-5 私聊信息表
 字段名称	字段意义	字段类型	字段长度	键码	能否为空
+
 id	序号	bigint	11	主键	否
+
 roleCode	角色编码	varchar	15		否
+
 roleName	角色名称	varchar	15		否
 
 
