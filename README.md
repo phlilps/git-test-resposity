@@ -30,6 +30,7 @@ mysql+Bootstrap+html+css+javascrip+SSM（Spring+SpringMVC+MyBatis）框架集由
 
 #### 供应信息流程
 在左边点击供应商，则用户会进入到系统的供应商管理功能界面，用用户可以对供应商内的各种信息进行添加、删除、修改以及查看等操作。操作流程此过程如3-4所示。
+
  ![供应商信息流程图](https://images.gitee.com/uploads/images/2021/1118/151704_92bea7e1_8746031.jpeg "供应商信息流程图.jpg")
 
 图3-4 供应商信息流程图
